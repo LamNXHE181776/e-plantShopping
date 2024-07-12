@@ -10,10 +10,15 @@ const Cart = ({ setViewCart }) => {
 
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
-    cart.forEach((item) => {
-      const total_cart_amount = total_cart_amount + (cart.quantity * (parseint(cart.cost)))
-      return total_cart_amount
+    let totalCost = 0;
+  
+    cart.forEach(item => {
+      // Remove '$' from item.cost and convert to integer
+      const costWithoutCurrency = parseInt(item.cost.replace('$', ''), 10);
+      const itemTotalCost = item.quantity * costWithoutCurrency;
+      totalCost += itemTotalCost;
     });
+       return totalCost;
   };
 
   const handleContinueShopping = (e) => {
@@ -43,8 +48,8 @@ const Cart = ({ setViewCart }) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
-    const totalcost= item.quantity * item.cost
-    return totalcost
+    const costWithoutCurrency = parseInt(item.cost.replace('$', ''), 10);
+    return item.quantity * costWithoutCurrency;
   };
 
   return (
