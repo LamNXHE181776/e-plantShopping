@@ -21,11 +21,11 @@ const Cart = ({ setViewCart }) => {
        return totalCost;
   };
 
-  const handleContinueShopping = (e) => {
+  const handleContinueShopping = () => {
     setViewCart(false); 
   };
 
-  const handleCheckoutShopping = (e) => {
+  const handleCheckoutShopping = () => {
     alert('Functionality to be added for future reference');
   };
 
