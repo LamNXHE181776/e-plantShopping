@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CreatSlice';
@@ -28,10 +29,10 @@ const Cart = ({ setViewCart }) => {
   };
 
   const handleDecrement = (item) => {
-    if item.quantity > 1{
+    if (item.quantity > 1){
         useDispatch(updateQuantity({name: item.name, quantity: item.quantity - 1 }))
     }
-    else if item.quantity < 2{
+    else if (item.quantity < 2){
         useDispatch(removeItem(item.name))
     }
   };
@@ -78,5 +79,3 @@ const Cart = ({ setViewCart }) => {
 };
 
 export default Cart;
-
-
